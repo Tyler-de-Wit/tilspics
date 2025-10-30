@@ -1,0 +1,852 @@
+@charset "UTF-8";
+
+/* Colours */
+:root {
+    --primary: #3EB489;
+    --secondary: #F4D35E;
+    --background: #F7FDFC;
+    --text: #2F3E46;
+    --accent: #F5B7B1;
+    --black: #000000;
+    --white: #ffffff;
+    --grey: #d7d7d7;
+    --red: #ff0000;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+}
+
+body {
+    background-color: var(--background);
+}
+
+h1,h2,h3,h4,h5,h6,p,li,a {
+    color: var(--text);
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    color: var(--red);
+    font-size: 1.2em;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-rows: auto minmax(880px, auto) auto;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+/* ------------------------- Header ------------------------- */
+header {
+    grid-area: header;
+    background-color: var(--primary);
+
+    display: grid;
+    grid-template-columns: auto minmax(auto, 600px) 150px;
+    grid-template-areas: 
+    "title navigation login";
+}
+
+h1 {
+    grid-area: title;
+    align-self: center;
+    padding: 0.5em;
+}
+
+/* Navigation */
+nav {
+    grid-area: navigation;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+nav a {
+    display: block;
+    color: var(--text);
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 1.3em;
+}
+
+nav a:hover {
+    background-color: var(--accent);
+}
+
+/* Login Button */
+#login-button {
+    grid-area: login;
+    align-self: center;
+    background-color: var(--secondary);
+    cursor: pointer;
+    
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    
+    border: 3px solid var(--text);
+    padding: 0.5em;
+    margin-right: 30px;
+    border-radius: 8px;
+}
+
+#login-button:hover {
+    opacity: 85%;
+}
+
+/* ------------------------- Footer ------------------------- */
+footer {
+    grid-area: footer;
+    background-color: var(--grey);
+  
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    ". footer-navigation footer-policies ."
+    ". footer-copyright-statement footer-copyright-statement .";
+}
+
+#footer-navigation {
+    grid-area: footer-navigation;
+    justify-items: center;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+#footer-policies {
+    grid-area: footer-policies;
+    justify-items: center;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+#footer-copyright-statement {
+    grid-area: footer-copyright-statement;
+    justify-items: center;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+footer h2 {
+    font-size: 1.7em;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer a {
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------- Main Error Page ------------------------- */
+#error404-page-main h2 {
+    text-align: center;
+    margin: 0.5em;
+    font-size: 3em;
+}
+
+#error404-page-main #error-messages {
+    text-align: center;
+    margin: 2em;
+    font-size: 1.8em;
+}
+
+#error404-page-main #error-messages a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+#error404-page-main #error-messages a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------- Main Sitemap Page ------------------------- */
+#sitemap-page-main {
+    grid-area: main;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 2em;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10em;
+}
+
+#sitemap-page-main h2 {
+    font-size: 2em;
+}
+
+#sitemap-page-main a {
+    font-size: 1.4em;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+#sitemap-page-main a:hover  {
+    text-decoration: underline;
+}
+
+#sitemap-website-pages,
+#sitemap-policy-pages {
+    justify-items: center;
+}
+
+/* ------------------------- Main Terms And Conditions Page ------------------------- */
+#terms-and-conditions-page-main {
+    grid-area: main;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#terms-and-conditions-page-main h2 {
+    font-size: 2em;
+    text-align: center;
+    margin: 1em;
+}
+
+#terms-and-conditions-page-main p {
+    font-size: 1.3em;
+}
+
+#terms-and-conditions-page-main li {
+    margin-bottom: 1em;
+}
+
+#terms-and-conditions-page-main #pdf-link-button {
+    text-align: center;
+    margin-top: 6em;
+}
+
+#terms-and-conditions-page-main #pdf-link-button a {
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+#terms-and-conditions-page-main #pdf-link-button a:hover {
+    text-decoration: none;
+}
+
+/* ------------------------- Main Code Of Ethics Page ------------------------- */
+#code-of-ethics-page-main {
+    grid-area: main;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#code-of-ethics-page-main h2 {
+    font-size: 1.7em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+#code-of-ethics-page-main p {
+    font-size: 1.3em;
+}
+
+#code-of-ethics-page-main #pdf-link-button {
+    text-align: center;
+    margin-top: 6em;
+}
+
+#code-of-ethics-page-main #pdf-link-button a {
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+#code-of-ethics-page-main #pdf-link-button a:hover {
+    text-decoration: none;
+}
+
+/* ------------------------- Main Privacy Policy Page ------------------------- */
+#privacy-policy-page-main {
+    grid-area: main;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#privacy-policy-page-main h2 {
+    font-size: 1.7em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+#privacy-policy-page-main p {
+    font-size: 1.3em;
+}
+
+#privacy-policy-page-main #pdf-link-button {
+    text-align: center;
+    margin-top: 6em;
+}
+
+#privacy-policy-page-main #pdf-link-button a {
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+#privacy-policy-page-main #pdf-link-button a:hover {
+    text-decoration: none;
+}
+
+/* ------------------------- Main Home Page ------------------------- */
+#home-page-main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+#home-page-hero-image {
+    justify-self: center;
+}
+
+#home-page-hero-image img {
+    width: 900px;
+    height: auto;
+    margin: 2em;
+}
+
+#home-page-about-us {
+    align-self: center;
+    margin-right: 1em;
+}
+
+#home-page-about-us h2 {
+    font-size: 2.3em;
+    margin-bottom: 0.3em;
+}
+
+#home-page-about-us p {
+    font-size: 1.6em;
+}
+
+/* ------------------------- Main Image Gallery Page ------------------------- */
+#images-page-main {
+    grid-area: main;
+}
+
+#images-page-main table {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-collapse: collapse;
+}
+
+#images-page-main table thead #thumbnail {
+    width: 350px;
+}
+
+#images-page-main table thead #metadata {
+    width: 500px;
+}
+
+#images-page-main table thead #properties {
+    width: auto;
+}
+
+#images-page-main table th {
+    font-size: 1.2em;
+}
+
+#images-page-main table tbody tr td {
+    border: 1px solid var(--text);
+    text-align: center;
+    padding: 1em;
+}
+
+#images-page-main table tbody tr td:first-child  {
+    padding: 0em;
+}
+
+#images-page-main table tbody tr td a img {
+    width: 350px;
+    height: auto;
+    justify-self: center;
+    margin: 0 auto;
+}
+
+/* Indented tables */
+#images-page-main table tbody table th {
+    text-align: left;
+    width: 130px;
+    padding: 0.5em;
+}
+
+#images-page-main table tbody table tr {
+    height: auto;
+}
+
+#images-page-main table tbody table tr td #download-button {
+    background-color: var(--accent);
+    cursor: pointer;
+    
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    
+    border: 1px solid var(--text);
+    padding: 0.5em;
+    border-radius: 8px;
+}
+
+#images-page-main table tbody table tr td #download-button:hover {
+    opacity: 70%;
+}
+
+/* ------------------------- Main Contact Us Page ------------------------- */
+#contact-us-main {
+    grid-area: main;
+}
+
+#contact-us-main form {
+    justify-self: center;
+    width: 100vw;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 2em;
+}
+
+#contact-us-main legend {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: var(--primary);
+    padding-left: 3px;
+    padding-right: 3px;
+    text-align: center;
+}
+
+#contact-us-main fieldset {
+    border-radius: 10px;
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    padding: 1em;
+    position: relative;
+}
+
+#contact-us-main label {
+    font-weight: bold;
+    display: inline;
+    width: 100%;
+    height: 2.5em;
+}
+
+#contact-us-main input[type=text],
+#contact-us-main select {
+    width: 100%;
+    height: 2.5em;
+    border-radius: 7px;
+    border: 1px solid var(--black);
+}
+
+#contact-us-main input[type=submit] {
+    background-color: var(--accent);
+    padding: 0.7em;
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid var(--black);
+}
+
+#contact-us-main input[type=submit]:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+#contact-us-main textarea {
+    width: 100%;
+    resize: vertical;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    height: 150px;
+    padding: 0.2em;
+    border-radius: 7px;
+    border: 1px solid var(--black);
+}
+
+/* Classes for toggling visibility on error messages */
+.errorSpanVisible {
+    display: inline;
+    color: var(--red);
+    position: absolute;
+    right: 1em;
+}
+
+.errorSpanHidden {
+    display: none;
+}
+
+/* Classes for toggling visibility on checkmark */
+.checkmarkSpanVisible {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 1em;
+    width: 0.5em;
+    border-bottom: 3px solid #1bd170;
+    border-right: 3px solid #1bd170;
+    position: absolute;
+    right: 1.3em;
+}
+
+.checkmarkSpanHidden {
+    display: none;
+}
+
+/* Classes for toggling visibility on tooltips */
+.tooltipVisible {
+    display: block;
+    background-color: var(--accent);
+    border: 3px solid var(--black);
+    border-radius: 5px;
+    padding: 0.2em;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.tooltipHidden {
+    display: none;
+}
+
+/* Set input font size to 16px to prevent zooming on mobile devices */
+#contact-us-main input, select, textarea {
+    font-size: 16px;
+}
+
+/* ------------------------- Media Queries ------------------------- */
+/* Change nav bar to hamburger menu */
+@media screen and (max-width: 1460px) {
+    #wrapper {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    }
+
+    header {
+        grid-template-columns: auto 150px;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "title hamburger"
+        "hamburger-navigation hamburger-navigation";
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav {
+        display: none;
+    }
+
+    #login-button {
+        display: none;
+    }
+
+    /* Fade in for nav bar */
+    .fade-in {
+        opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 0.5s;
+    }
+    
+    @keyframes fadeInOpacity {
+        0% {
+        opacity: 0;
+        }
+        100% {
+        opacity: 1;
+        }
+    }
+
+    /* hamburger navigation */
+    .hamburgerNav {
+        grid-area: hamburger-navigation;
+        display: block;
+    
+        width: 100%;
+        height: auto;
+        background-color: var(--primary);
+    
+        justify-self: end;
+    }
+
+    .hamburgerNav ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* hamburger menu button */
+    .hamburger-button {
+        height: 50px;
+        width: 40px;
+        justify-self: end;
+        position: relative;
+        right: 10px;
+    }
+
+    .hamburger-button span {
+        height: 5px;
+        width: 100%;
+        background-color: var(--accent);
+        border-radius: 25px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: .3s ease;
+    }
+
+    .hamburger-button span:nth-child(1) {
+        top: 25%;
+    }
+
+    .hamburger-button span:nth-child(3) {
+        top: 75%;
+    }
+
+    /* hamburger menu close button */
+    .hamburger-button.active span {
+        background-color: var(--accent);
+    }
+
+    .hamburger-button.active span:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .hamburger-button.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-button.active span:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    /* ------------------------- Footer ------------------------- */
+    footer {
+        grid-area: footer;
+        background-color: var(--grey);
+    
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "footer-navigation"
+        "footer-policies"
+        "footer-copyright-statement";
+    }
+
+    #footer-navigation {
+        grid-area: footer-navigation;
+        justify-items: center;
+        padding: 1em;
+    }
+
+    #footer-policies {
+        grid-area: footer-policies;
+        justify-items: center;
+        padding: 1em;
+    }
+
+    #footer-copyright-statement {
+        grid-area: footer-copyright-statement;
+        justify-items: center;
+        padding: 1em;
+    }
+
+    footer h2 {
+        font-size: 1.7em;
+        text-align: center;
+    }
+
+    footer ul {
+        list-style-type: none;
+    }
+
+    footer ul li {
+        text-align: center;
+    }
+
+    footer a {
+        text-decoration: none;
+        font-size: 1.3em;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    footer p {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    /* ------------------------- Main Home Page ------------------------- */
+    #home-page-main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        gap: 1em;
+    }
+
+    #home-page-hero-image {
+        justify-self: center;
+        height: auto;
+    }
+
+    #home-page-hero-image img {
+        width: 80vw;
+        height: auto;
+        margin: 2em;
+    }
+
+    #home-page-about-us {
+        align-self: center;
+        margin-right: 0;
+        width: 80vw;
+        margin: 0 auto;
+        margin-bottom: 3em;
+    }
+
+    #home-page-about-us h2 {
+        font-size: 1.6em;
+        margin-bottom: 0.3em;
+        text-align: center;
+    }
+
+    #home-page-about-us p {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    /* ------------------------- Main Contact Us Page ------------------------- */
+    #contact-us-main form {
+        justify-self: center;
+        width: 100vw;
+        max-width: 800px;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    /* ------------------------- Main Image Gallery Page ------------------------- */
+    #images-page-main table tbody tr td {
+        display: block;
+    }
+
+    #images-page-main table th {
+        display: none;
+    }
+
+    /* ------------------------- Main Sitemap Page ------------------------- */
+    #sitemap-page-main {
+        grid-area: main;
+        margin-top: 2em;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 2em;
+    }
+
+    #sitemap-page-main h2 {
+        font-size: 1.6em;
+    }
+
+    #sitemap-page-main a {
+        font-size: 1.2em;
+        line-height: 1.5;
+        text-decoration: none;
+    }
+
+    #sitemap-website-pages,
+    #sitemap-policy-pages {
+        justify-items: left;
+    }
+
+    /* ------------------------- Main Terms And Conditions Page ------------------------- */
+    #terms-and-conditions-page-main {
+        grid-area: main;
+        max-width: 87vw;
+        margin: 0 auto;
+    }
+
+    #terms-and-conditions-page-main #pdf-link-button {
+        text-align: center;
+        margin-top: 3em;
+        margin-bottom: 2em;
+    }
+
+    /* ------------------------- Main Code Of Ethics Page ------------------------- */
+    #code-of-ethics-page-main {
+        grid-area: main;
+        max-width: 87vw;
+        margin: 0 auto;
+    }
+
+    #code-of-ethics-page-main #pdf-link-button {
+        text-align: center;
+        margin-top: 3em;
+        margin-bottom: 2em;
+    }
+
+    /* ------------------------- Main Privacy Policy Page ------------------------- */
+    #privacy-policy-page-main {
+        grid-area: main;
+        max-width: 87vw;
+        margin: 0 auto;
+    }
+
+    #privacy-policy-page-main #pdf-link-button {
+        text-align: center;
+        margin-top: 3em;
+        margin-bottom: 2em;
+    }
+}
